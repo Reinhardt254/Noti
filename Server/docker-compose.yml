@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_USER: noti
+      POSTGRES_PASSWORD: noti
+      POSTGRES_DB: noti
+    volumes:
+      - noti_pg:/var/lib/postgresql/data
+
+volumes:
+  noti_pg:
